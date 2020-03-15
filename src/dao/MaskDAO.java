@@ -3,9 +3,10 @@ package dao;
 import pojo.Reservation;
 
 public interface MaskDAO {
-	void add(Reservation user); //ÏòÊı¾İ¿âÌí¼ÓÔ¤Ô¼¶ÔÏó
-    void update(int id,String status); //ÊäÈëÔ¤Ô¼±àºÅºÍÖĞ½±×´Ì¬£¬¸üĞÂÔ¤Ô¼¶ÔÏóµÄÖĞ½±Çé¿ö
-    Reservation list(int id);  //ÊäÈëÔ¤Ô¼±àºÅ·µ»ØÒª²éÑ¯µÄÔ¤Ô¼¶ÔÏóµÄÊı¾İ
-    boolean query(String id,int times);//ÊäÈëÉí·İÖ¤ºÅºÍµ±Ç°ÂÖÊı£¬ÅĞ¶ÏÊÇ·ñÓĞ±¨Ãû
-    boolean queryTel(String tel,int times);//ÊäÈëÊÖ»úºÅºÍµ±Ç°ÂÖÊı£¬ÅĞ¶ÏÊÇ·ñÓĞ±¨Ãû
+	void add(Reservation user); //ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½
+    void update(int id,String status); //ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½Åºï¿½ï¿½Ğ½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ½ï¿½ï¿½ï¿½ï¿½
+    Reservation[] list(String id);  //ï¿½ï¿½ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½Å·ï¿½ï¿½ï¿½Òªï¿½ï¿½Ñ¯ï¿½ï¿½Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    Reservation[] getList(int times);
+    boolean query(String id,int times);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ÅºÍµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½Ğ±ï¿½ï¿½ï¿½
+    boolean queryTel(String tel,int times);//ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ÅºÍµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½Ğ±ï¿½ï¿½ï¿½
 }

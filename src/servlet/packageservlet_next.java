@@ -27,7 +27,7 @@ import dao.ReservationDAO;
 /**
  * Servlet implementation class test
  */
-@WebServlet("/test")
+@WebServlet("/next")
 public class ProvinceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

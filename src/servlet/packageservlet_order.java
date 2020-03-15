@@ -28,7 +28,7 @@ import org.omg.CORBA.OBJ_ADAPTER;
 /**
  * Servlet implementation class test
  */
-@WebServlet("/test")
+@WebServlet("/order")
 public class ProvinceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
