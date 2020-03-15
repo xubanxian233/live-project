@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import org.junit.*;
-import until.DBUtil;
-import pojo.*;
+import util.DBUtil;
+
 
 /**
  * testDemo
@@ -32,8 +32,8 @@ public class testDemo {
                 String getnumber = rs.getString(6);
                 String status = rs.getString(7);
                 
-                System.out.println(id + " " + tel + " " + name + "" + number + 
-                    "" + times + "" + getnumber + "" + status);
+				System.out.println(id + " " + tel + " " + name + " " + 
+					number + " " + times + " " + getnumber + " " + status);
             }
         } catch (SQLException e) {
             e.printStackTrace();
