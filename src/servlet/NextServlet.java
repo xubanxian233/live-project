@@ -14,27 +14,30 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.omg.CORBA.OBJ_ADAPTER;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.sun.java_cup.internal.runtime.virtual_parse_stack;
 
-import dao.ReservationDAO;
+import dao.CampaignDAO;
+import dao.CampaignDAOImpl;
+import dao.MaskDAO;
+import pojo.Campaign;
 
 
 /**
  * Servlet implementation class test
  */
-@WebServlet("/test")
-public class ProvinceServlet extends HttpServlet {
+@WebServlet("/next")
+public class NextServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ProvinceServlet() {
+	public NextServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -46,14 +49,17 @@ public class ProvinceServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
         //进行下一轮
 		response.setContentType("application/json;charset=utf-8");
-        ReservationDAO.addTimes(ReservationDAO.getTimes());
-
-		request.setAttribute("status",ReservationDAO.getTimes());
-		
-		
+		int total=Integer.parseInt(request.getParameter("total"));
+		HttpSession session = request.getSession();
+		session.setAttribute("flag", "begin");
+		CampaignDAO campaignDAO=new CampaignDAOImpl();
+		Campaign c=new Campaign();
+		c.setTimes(campaignDAO.get().getTimes()+1);
+		c.setTotal(total);
+		campaignDAO.add(c);
+		request.setAttribute("times",campaignDAO.getTimes());
 	}
 
 	/**

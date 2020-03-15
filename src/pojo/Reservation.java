@@ -1,16 +1,16 @@
 package pojo;
 
 public class Reservation {
-    private String reserveNum; // Ô¤Ô¼ÂÖ´Î±àºÅ
-    private String name; // ÕæÊµÐÕÃû
-    private String ID; // Éí·ÝÖ¤ºÅ
-    private String tel; // ÊÖ»úºÅ
-    private String number; // Ô¤Ô¼ÊýÁ¿
-    private String status; // Î´¿ª½±0 or Î´ÖÐ½±1 orÖÐ½±2
-    private String winningNum; // ÖÐ½±ºÅÂë
+    private int reserveNum; // Ô¤Ô¼ï¿½Ö´Î±ï¿½ï¿½
+    private String name; // ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
+    private String ID; // ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
+    private String tel; // ï¿½Ö»ï¿½ï¿½ï¿½
+    private int number; // Ô¤Ô¼ï¿½ï¿½ï¿½ï¿½
+    private int status; // Î´ï¿½ï¿½ï¿½ï¿½0 or Î´ï¿½Ð½ï¿½1 orï¿½Ð½ï¿½2
+    private int winningNum; // ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    //ËùÓÐ²ÎÊý¶¼´øµÄ¹¹Ôì
-    public Reservation(String reserveNum,String name,String ID,String tel,String number,String status,String winningNum) {
+    //ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½
+    public Reservation(int reserveNum,String name,String ID,String tel,int number,int status,int winningNum) {
         this.reserveNum=reserveNum;
         this.name=name;
         this.ID=ID;
@@ -20,18 +20,22 @@ public class Reservation {
         this.winningNum=winningNum;
     }
     
-    //Ä¬ÈÏstatus="0"ºÍwinningNum=""
-    public Reservation(String reserveNum, String name, String ID, String tel, String number) {
+    //Ä¬ï¿½ï¿½status="0"ï¿½ï¿½winningNum=""
+    public Reservation(int reserveNum, String name, String ID, String tel, int number) {
         this.reserveNum = reserveNum;
         this.name = name;
         this.ID = ID;
         this.tel = tel;
         this.number = number;
-        status="0";
-        winningNum="";
+        status=0;
+        winningNum=0;
+    }
+    
+    public Reservation() {
+    	
     }
 
-    public void setResereNum(String reserveNum) {
+    public void setResereNum(int reserveNum) {
         this.reserveNum=reserveNum;
     }
     
@@ -47,31 +51,31 @@ public class Reservation {
         this.tel=tel;
     }
     
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number=number;
     }
     
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status=status;
     }
     
-    public void setWinnningNum(String winningNum) {
+    public void setWinnningNum(int winningNum) {
         this.winningNum=winningNum;
     }
 
-    public String getReserveNum() {
+    public int getReserveNum() {
         return reserveNum;
     }
 
-    public void setReserveNum(String reserveNum) {
+    public void setReserveNum(int reserveNum) {
         this.reserveNum = reserveNum;
     }
 
-    public String getWinningNum() {
+    public int getWinningNum() {
         return winningNum;
     }
 
-    public void setWinningNum(String winningNum) {
+    public void setWinningNum(int winningNum) {
         this.winningNum = winningNum;
     }
 
@@ -87,11 +91,11 @@ public class Reservation {
         return tel;
     }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 }
