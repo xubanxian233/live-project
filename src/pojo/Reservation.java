@@ -1,15 +1,15 @@
 package pojo;
 
 public class Reservation {
-    private int reserveNum; // ԤԼ�ִα��
-    private String name; // ��ʵ����
-    private String ID; // ���֤��
-    private String tel; // �ֻ���
-    private int number; // ԤԼ����
-    private int status; // δ����0 or δ�н�1 or�н�2
-    private int winningNum; // �н�����
+    private int reserveNum; // 预约轮次
+    private String name; // 名字
+    private String ID; // 身份证
+    private String tel; // 手机
+    private int number; // 预约口罩数
+    private int status; // 0未开始 1未中签2中签
+    private int winningNum; // 预约成功记录编号
 
-    //���в��������Ĺ���
+    
     public Reservation(int reserveNum,String name,String ID,String tel,int number,int status,int winningNum) {
         this.reserveNum=reserveNum;
         this.name=name;
@@ -20,7 +20,7 @@ public class Reservation {
         this.winningNum=winningNum;
     }
     
-    //Ĭ��status="0"��winningNum=""
+    
     public Reservation(int reserveNum, String name, String ID, String tel, int number) {
         this.reserveNum = reserveNum;
         this.name = name;
@@ -33,10 +33,6 @@ public class Reservation {
     
     public Reservation() {
     	
-    }
-
-    public void setResereNum(int reserveNum) {
-        this.reserveNum=reserveNum;
     }
     
     public void setName(String name) {

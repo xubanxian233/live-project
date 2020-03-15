@@ -53,12 +53,10 @@ public class OutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("application/json;charset=utf-8");
 		String times = request.getParameter("times");
 		HttpSession session = request.getSession();
 		session.setAttribute("flag", "end");
 		CampaignDAO campaignDAO = new CampaignDAOImpl();
-		int getnumber_n = campaignDAO.get().getTimes();// 当前轮数
 		int times_n = Integer.parseInt(times);
 		int ran1 = (int) (Math.random() * 3);
 		String result = "fail";
@@ -81,9 +79,10 @@ public class OutServlet extends HttpServlet {
 				}
 			}
 		}
+		c.setTotal(sum_n);
+		campaignDAO.update(c);
 		request.setAttribute("status", result);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-
 	}
 
 	/**

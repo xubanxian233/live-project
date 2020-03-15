@@ -50,7 +50,6 @@ public class NextServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
         //进行下一轮
-		response.setContentType("application/json;charset=utf-8");
 		int total=Integer.parseInt(request.getParameter("total"));
 		HttpSession session = request.getSession();
 		session.setAttribute("flag", "begin");
@@ -60,6 +59,7 @@ public class NextServlet extends HttpServlet {
 		c.setTotal(total);
 		campaignDAO.add(c);
 		request.setAttribute("times",campaignDAO.getTimes());
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	/**
