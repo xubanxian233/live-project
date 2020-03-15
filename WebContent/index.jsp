@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 	<head>
@@ -10,7 +12,7 @@
 	</head>
 	<body>
 		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-		<script src="jquery-3.3.1.js"></script>
+		<script src="js/jquery-3.3.1.js"></script>
 		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 		<script src="js/bootstrap.js"></script>
 
@@ -26,15 +28,15 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">口罩预约系统</a>
+					<a class="navbar-brand" href="">口罩预约系统</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
-						<li><a href="index.html">预约登记</a></li>
-						<li><a href="query.html">中签查询<span class="sr-only">(current)</span></a></li>
+						<li class="active"><a href="index.jsp">首页 <span class="sr-only">(current)</span></a></li>
+						<li><a href="index.jsp">预约登记</a></li>
+						<li><a href="query.jsp">中签查询<span class="sr-only">(current)</span></a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
