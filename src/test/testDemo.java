@@ -1,10 +1,12 @@
+package test;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import org.junit.*;
-
+import until.DBUtil;
+import pojo.*;
 
 /**
  * testDemo
@@ -15,7 +17,7 @@ public class testDemo {
 	private Statement st;
 
     @Test
-    public void testEnquiey(){
+    public void testEnquiey() {
         try {
             Connection con = DBUtil.getConnection();
             st = con.createStatement();
@@ -100,5 +102,6 @@ public class testDemo {
 		}finally {
 			DBUtil.close(rs, st, con);
         }
-    }
+	}
+
 }
