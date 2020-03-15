@@ -18,9 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.omg.CORBA.OBJ_ADAPTER;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.sun.java_cup.internal.runtime.virtual_parse_stack;
 
 
  import dao.ReservationDAO;
@@ -61,21 +58,21 @@ public class ProvinceServlet extends HttpServlet {
         String result="fail";
         //前三天的状况
         if(id_n>0){
-            if(query(id,getnumber_n-1))
+            if(ReservationDAO.query(id,getnumber_n-1))
             {
                 String s1=ReservationDAO.list(id_n-1).getStatus();
                 if(!s1.equals("2")) {
                     fl=false;
                 }
             }
-            if(query(id,getnumber_n-2))
+            if(ReservationDAO.query(id,getnumber_n-2))
             {
                 String s1=ReservationDAO.list(id_n-2).getStatus();
                 if(!s1.equals("2")) {
                     fl=false;
                 }
             }
-            if(query(id,getnumber_n-3))
+            if(ReservationDAO.query(id,getnumber_n-3))
             {
                 String s1=ReservationDAO.list(id_n-3).getStatus();
                 if(!s1.equals("2")) {
@@ -85,7 +82,7 @@ public class ProvinceServlet extends HttpServlet {
             
         }
         //预约成功
-        if(!query(id,getnumber_n)&&fl){
+        if(!ReservationDAO.query(id,getnumber_n)&&fl){
             if(Times_n >=times_n){
                     getnumber_n++;
                     times_n++;
