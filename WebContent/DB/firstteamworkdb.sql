@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-03-15 10:45:50
+Date: 2020-03-15 11:12:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,6 +39,7 @@ CREATE TABLE `registration` (
   `number` int(11) NOT NULL,
   `times` int(11) NOT NULL,
   `getnumber` int(11) NOT NULL AUTO_INCREMENT,
+  `ststus` int(11) NOT NULL,
   PRIMARY KEY (`getnumber`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
