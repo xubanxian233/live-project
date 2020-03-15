@@ -30,7 +30,7 @@ public class MaskDAOImpl implements MaskDAO {
 			ps.execute();
 			ResultSet rs = ps.getGeneratedKeys();
 			if (rs.next()) {
-				int id = rs.getInt(6);
+				int id = rs.getInt(1);
 				bean.setWinningNum(id);
 			}
 		} catch (SQLException e) {
@@ -62,7 +62,7 @@ public class MaskDAOImpl implements MaskDAO {
 		String sql = "select * from registration where id=? order by times desc";
 		try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
 			ps.setString(1, id);
-			ResultSet rs = ps.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				if (cnt < 3) {
 					users = new Reservation();
@@ -89,7 +89,7 @@ public class MaskDAOImpl implements MaskDAO {
 		try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
 			ps.setString(1, id);
 			ps.setInt(2, times);
-			ResultSet rs = ps.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				return true;
 			}
@@ -106,7 +106,7 @@ public class MaskDAOImpl implements MaskDAO {
 		try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
 			ps.setString(1, tel);
 			ps.setInt(2, times);
-			ResultSet rs = ps.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				return true;
 			}
@@ -124,7 +124,7 @@ public class MaskDAOImpl implements MaskDAO {
 		String sql = "select * from registration where times=? order by times desc";
 		try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
 			ps.setInt(1, times);
-			ResultSet rs = ps.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				users = new Reservation();
 				users.setName(rs.getString("name"));
@@ -139,6 +139,29 @@ public class MaskDAOImpl implements MaskDAO {
 			e.printStackTrace();
 		}
 		return (Reservation[]) list.toArray(new Reservation[list.size()]);
+	}
+
+	@Override
+	public Reservation get(int getNumber) {
+		// TODO Auto-generated method stub
+		Reservation record = new Reservation();
+		String sql = "select * from registration where getnumber = ?";
+		try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
+			ps.setInt(1, getNumber);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				record.setName(rs.getString("name"));
+				record.setID(rs.getString("id"));
+				record.setTel(rs.getString("tel"));
+				record.setNumber(rs.getInt("number"));
+				record.setStatus(rs.getInt("status"));
+				record.setWinningNum(rs.getInt("getnumber"));
+				record.setReserveNum(rs.getInt("times"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return record;
 	}
 
 }
