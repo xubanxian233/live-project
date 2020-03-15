@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-03-15 11:12:56
+Date: 2020-03-15 13:10:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,6 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE `appointment` (
   `times` int(11) NOT NULL AUTO_INCREMENT,
+  `number` int(11) NOT NULL,
   PRIMARY KEY (`times`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -39,7 +40,7 @@ CREATE TABLE `registration` (
   `number` int(11) NOT NULL,
   `times` int(11) NOT NULL,
   `getnumber` int(11) NOT NULL AUTO_INCREMENT,
-  `ststus` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`getnumber`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
