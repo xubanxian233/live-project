@@ -78,15 +78,12 @@
 								<button type="submit" class="btn btn-primary">提交预约</button>
 							  </form>
 					</div>
+					<!-- 组内评价 -->
 					<div role="tabpanel" class="tab-pane fade" id="profile">
+						<div class="list-group">
+							<button type="button" class="btn btn-success">开始新的预约</button>
 							<button type="button" class="btn btn-warning">结束当前预约</button>
-							<form style="margin-top: 25px;">
-								<div class="form-group">
-								  <label>口罩数量</label>
-								  <input type="number" class="form-control" id="exampleInputName" placeholder="Num" style="margin-bottom: 10px;">
-								  <button type="submit" class="btn btn-success">开始新的预约</button>
-							  </form>
-
+						</div>
 					</div>
 				</div>
 				
