@@ -51,7 +51,6 @@ public class ProvinceServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("application/json;charset=utf-8");
-		PrintWriter out = response.getWriter();
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String tel = request.getParameter("tel");
@@ -101,18 +100,8 @@ public class ProvinceServlet extends HttpServlet {
         else {
             result="fail";
         }
-        
-
-		try {
-				JSONObject json = JSONObject.parseObject(JSON.toJSONString(result));
-				out.write(json.toString());
-				out.flush();
-				out.close();
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+        //是否预约成功
+        request.setAttribute("status",result);
 		
 	}
 
