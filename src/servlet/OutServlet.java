@@ -18,15 +18,12 @@ import javax.servlet.http.HttpSession;
 
 import org.omg.CORBA.OBJ_ADAPTER;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.sun.java_cup.internal.runtime.virtual_parse_stack;
 
 import dao.CampaignDAO;
 import dao.CampaignDAOImpl;
 import dao.MaskDAO;
 import dao.MaskDAOImpl;
-import dao.ReservationDAO;
 import pojo.Campaign;
 import pojo.Reservation;
 
@@ -67,12 +64,21 @@ public class OutServlet extends HttpServlet {
 		String result = "fail";
 		MaskDAO maskDAO = new MaskDAOImpl();
 		Reservation[] rs = maskDAO.getList(times_n);
-		if (maskDAO.query(id, getnumber_n)) {
-			if (ran1 < 1) {
-				ReservationDAO.update(id_n, "2");
-				result = "success";
-			} else {
-				ReservationDAO.update(id_n, "1");
+		Campaign c = campaignDAO.get();
+		int sum_n = c.getTotal();
+		while (sum_n >= 0) {
+			for (Reservation R : rs) {
+				int id_n = R.getWinningNum();
+				int num = R.getNumber();
+				int status = R.getStatus();
+				if (status == 0) {
+					if (ran1 < 1 && sum_n >= num) {
+						maskDAO.update(id_n, "2");
+						sum_n = sum_n - num;
+					} else {
+						maskDAO.update(id_n, "1");
+					}
+				}
 			}
 		}
 		request.setAttribute("status", result);

@@ -49,7 +49,6 @@ public class OrderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("application/json;charset=utf-8");
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String tel = request.getParameter("tel");
